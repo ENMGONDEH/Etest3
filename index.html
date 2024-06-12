@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecoin</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Iran Sans', Arial, sans-serif;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* برای جلوگیری از نمایش نوار اسکرول اضافی */
+            --background-hue: 0; /* مقدار اولیه برای شروع */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: hsl(var(--background-hue), 70%, 30%); /* استفاده از HSL برای تغییر رنگ */
+            transition: background-color 0.5s ease; /* انتقال رنگ با انیمیشن */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .coin-info {
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 10px;
+            margin: 5px;
+            background-color: #282828;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        #coinButton {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background: url('https://uploadkon.ir/uploads/c24f12_24-afff0eab-d3f1-4f76-9dd9-8a7804bc37fc.jpeg') no-repeat center center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #coinButton:active {
+            transform: scale(0.95);
+        }
+
+        .upgrade-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ecoin</h1>
+        <div class="coin-info">
+            <div class="info-row">
+                <div class="info-box">
+                    <p>سکه: <span id="coins">0</span></p>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-box">
+                    <p>CPS: <span id="cps">0</span> کلیک در ثانیه</p>
+                </div>
+                <div class="info-box">
+                    <p>CV: <span id="cv">1</span> سکه</p>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-box">
+                    <p>هزینه ارتقا نرخ کلیک: <span id="upgradeCost">100</span> سکه</p>
+                </div>
+                <div class="info-box">
+                    <p>هزینه ارتقا میزان سکه در کلیک: <span id="upgradeValueCost">100</span> سکه</p>
+                </div>
+            </div>
+        </div>
+        <div id="coinButton" onclick="handleClick()"></div>
+        <button class="upgrade-button" onclick="upgradeClick()">ارتقا نرخ کلیک</button>
+        <button class="upgrade-button" onclick="upgradeClickValue()">ارتقا میزان سکه در کلیک</button>
+    </div>
+    <footer>designed by ENM</footer>
+    <script src="script.js"></script>
+</body>
+</html>
